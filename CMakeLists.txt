@@ -15,9 +15,12 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(Catch2)
 
-add_executable(heat_flow_test tests/heat_flow_test.cpp src/heat_flow.cpp)
+add_executable(heat_flow_brain_test tests/heat_flow_brain_test.cpp src/heat_flow_brain.cpp)
+add_executable(heat_flow_config_test tests/heat_flow_config_test.cpp src/heat_flow_config.cpp)
 add_executable(heat_flow_printer_test tests/heat_flow_printer_test.cpp src/heat_flow_printer.cpp)
-add_executable(main main.cpp src/heat_flow.cpp src/heat_flow_printer.cpp)
+add_executable(main main.cpp src/heat_flow_brain.cpp src/heat_flow_printer.cpp
+        src/heat_flow_config.cpp)
 
-target_link_libraries(heat_flow_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(heat_flow_brain_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(heat_flow_printer_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(heat_flow_config_test PRIVATE Catch2::Catch2WithMain)
