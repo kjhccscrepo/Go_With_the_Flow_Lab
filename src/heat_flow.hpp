@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include "heat_flow_config.hpp"
-#include "heat_flow_brain.hpp"
 
 class heat_flow {
 private:
@@ -9,6 +8,4 @@ private:
     std::vector<bool> sinksAndSources;
 public:
     explicit heat_flow(HeatFlowConfiguration input);
-
-
 };
