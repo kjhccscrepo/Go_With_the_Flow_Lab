@@ -9,6 +9,6 @@
 TEST_CASE(" mogus ") {
     REQUIRE(true == true);
 }
-TEST_CASE(" mogus2 ") {
+TEST_CASE(" mogusss ") {
     REQUIRE(true == false);
 }
