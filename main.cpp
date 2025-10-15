@@ -1,8 +1,7 @@
 #include <iostream>
-#include "src/heat_flow_brain.hpp"
+#include "src/heat_flow.hpp"
 #include "src/heat_flow_printer.hpp"
 #include "src/heat_flow_config.hpp"
-
 int main() {
   // Your driver program goes here
   int startTemp;
@@ -15,24 +14,27 @@ int main() {
   std::cout << "input:\t";
   std::cin >> segments;
   std::cout << "\nWhat do you want the constant to be?\n";
-  float constant;
+  double constant;
   std::cout << "input:\t";
   std::cin >> constant;
   HeatFlowConfiguration config(startTemp, constant, segments);
-
-
-  std::cout << "\nWhere do you want a heat source/sink to be?\n";
-  std::vector<bool> sinkSource;
-  std::cout << "(min: 1, max: " + std::to_string((segments + 1)) + "))\n";
-  int sourcesinkInput;
-  std::cout << "input:\t";
-  std::cin >> sourcesinkInput;
-  sinkSource.resize(segments);
-  for (int i = 0; i < segments; i++) {
-    sinkSource[i] = false;
+  config.specify_Sinks_and_Sources();
+  heat_flow heatFlow(config);
+  bool gameLoop = true;
+  int intInput;
+  heat_flow_printer printer = heat_flow_printer(heatFlow.getHeatFlow());
+  while (gameLoop) {
+    std::cout << "\nYour heat flow is:\n";
+    std::cout << printer.prettyPrint_heat_flow();
+    std::cout << "\n(type \"1\" to exit, anything else will advance a tick.)";
+    std::cin >> intInput;
+    if (intInput != 1) {
+      gameLoop = false;
+    } else {
+      heatFlow.tick();
+      printer = heat_flow_printer(heatFlow.getHeatFlow());
+    }
   }
-  sinkSource[sourcesinkInput] = true;
-
-
-
+  std::cout << "\n\nThank you for using the Go With the Flow Lab!\n";
+  return 0;
 }

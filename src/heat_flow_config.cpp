@@ -9,7 +9,7 @@ void HeatFlowConfiguration::genSinkOrSource() {
         isSourceOrSink.push_back(false);
     }
 }
-HeatFlowConfiguration::HeatFlowConfiguration(const int &startTemp, const float &constant, const int &speciSections) {
+HeatFlowConfiguration::HeatFlowConfiguration(const int &startTemp, const double &constant, const int &speciSections) {
     this->initial_temperature = startTemp;
     this->sections = speciSections;
     this->k = constant;
@@ -44,4 +44,7 @@ std::vector<double> HeatFlowConfiguration::get_HeatFlowVector() {
 }
 std::vector<bool> HeatFlowConfiguration::get_SinksAndSources() {
     return isSourceOrSink;
+}
+double HeatFlowConfiguration::get_K() {
+    return k;
 }
