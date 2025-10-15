@@ -14,11 +14,12 @@ FetchContent_Declare(
 )
 
 FetchContent_MakeAvailable(Catch2)
-add_executable(heat_flow_test tests/heat_flow_test.cpp src/heat_flow.cpp src/heat_flow_config.cpp src/oops.cpp)
-add_executable(heat_flow_config_test tests/heat_flow_config_test.cpp src/heat_flow_config.cpp)
+add_executable(heat_flow_test tests/heat_flow_test.cpp src/heat_flow.cpp src/heat_flow_config.cpp)
+add_executable(heat_flow_config_test tests/heat_flow_config_test.cpp src/heat_flow_config.cpp src/oops.cpp)
 add_executable(heat_flow_printer_test tests/heat_flow_printer_test.cpp src/heat_flow_printer.cpp)
 add_executable(oops_test tests/oops_test.cpp src/oops.cpp)
 add_executable(main main.cpp
+        src/oops.cpp
         src/heat_flow_printer.cpp
         src/heat_flow_config.cpp
         src/heat_flow.cpp)

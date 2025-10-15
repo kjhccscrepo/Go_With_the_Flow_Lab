@@ -39,10 +39,10 @@ std::string inputValidator::generateYayMsg() const {
 }
 int inputValidator::oops(std::string &inputString) {
     std::cout << this->prompt;
-    std::cout << " Input:\t";
+    std::cout << " Input:\t ";
     std::getline(std::cin, inputString);
     if (inBounds(inputString)) {
-        std::cout << inputString << generateYayMsg();
+        // std::cout << inputString << generateYayMsg();
         return std::stoi(inputString);
     }
     std::cout << generateOopsMsg() << "\n";

@@ -9,7 +9,7 @@ private:
     int boundLo;
     int boundHi;
 public:
-    inputValidator(const int &upperBound, const int &lowerBound, const std::string &prompt);
+    inputValidator(const int &lowerBound, const int &upperBound, const std::string &prompt);
     static bool isInputInt(const std::string &input);
     bool isInputInBounds(const int &inputAsInt) const;
     bool inBounds(const std::string &input) const;
