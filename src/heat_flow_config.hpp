@@ -14,7 +14,7 @@ private:
     void genSinkOrSource();
 public:
     explicit HeatFlowConfiguration(const int &startTemp, const double &constant, const int &speciSections = 8);
-    void setSinkOrSource(const int &location, const int &temperature);
+    void setSinkOrSource(int location, int temperature);
     void specify_Sinks_and_Sources();
     std::vector<double> get_HeatFlowVector();
     std::vector<bool> get_SinksAndSources();

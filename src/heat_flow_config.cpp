@@ -16,7 +16,7 @@ HeatFlowConfiguration::HeatFlowConfiguration(const int &startTemp, const double 
     generateHeatFlowVector();
     genSinkOrSource();
 }
-void HeatFlowConfiguration::setSinkOrSource(const int &location, const int &temperature) {
+void HeatFlowConfiguration::setSinkOrSource(int location, int temperature) {
     isSourceOrSink[location] = true;
     heatFlowVector[location] = temperature;
 }
