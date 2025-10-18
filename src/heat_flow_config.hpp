@@ -7,7 +7,6 @@ class HeatFlowConfiguration {
 private:
     std::vector<double> heatFlowVector;
     std::vector<bool> isSourceOrSink;
-    int maxTemp = 300;
     int initial_temperature;
     int sections;
     double k;
@@ -15,8 +14,8 @@ private:
     void genSinkOrSource();
 public:
     explicit HeatFlowConfiguration(const int &startTemp, const double &constant, const int &speciSections = 8);
+    void setSinkOrSource(const int &location, const int &temperature);
     void specify_Sinks_and_Sources();
-    void goAgain();
     std::vector<double> get_HeatFlowVector();
     std::vector<bool> get_SinksAndSources();
     double get_K();

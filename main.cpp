@@ -28,9 +28,7 @@ int main() {
   }
   HeatFlowConfiguration config(startTemp, constant, segments);
   config.specify_Sinks_and_Sources();
-
   config.goAgain();
-
   heat_flow heatFlow(config);
   bool gameLoop = true;
   heat_flow_printer printer = heat_flow_printer(heatFlow.getHeatFlow());

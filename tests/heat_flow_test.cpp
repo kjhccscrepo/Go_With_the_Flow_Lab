@@ -3,12 +3,17 @@
 #include <catch2/benchmark/catch_constructor.hpp>
 #include <catch2/generators/catch_generators_range.hpp>
 #include "../src/heat_flow.hpp"
-#include "../src/heat_flow_config.hpp"
-#include "../src/oops.hpp"
 
-TEST_CASE(" mogus ") {
-    REQUIRE(true == true);
-}
-TEST_CASE(" mogusss ") {
-    REQUIRE(true == false);
+TEST_CASE(" it generates the heat flow logic class correctly ") {
+    HeatFlowConfiguration config(10, 0.1, 8);
+    config.setSinkOrSource(0, 100);
+    heat_flow testHeatFlow (config);
+    std::vector<double> expectedVector = {100, 10, 10, 10, 10, 10, 10, 10};
+    REQUIRE (testHeatFlow.getHeatFlow() == expectedVector);
+    testHeatFlow.tick();
+    expectedVector = {100, 19, 10, 10, 10, 10, 10, 10};
+    REQUIRE (testHeatFlow.getHeatFlow() == expectedVector);
+    testHeatFlow.tick();
+    expectedVector = {100, 26.2, 10.9, 10, 10, 10, 10, 10};
+    REQUIRE (testHeatFlow.getHeatFlow() == expectedVector);
 }
